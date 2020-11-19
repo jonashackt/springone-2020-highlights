@@ -1,5 +1,18 @@
 # springone-2020-highlights
-Notes for my personal highlights of SpringOne 2020
+Notes about my personal highlights of SpringOne 2020
+
+[![springone-schedule](springone-schedule.png)](https://springone.io/2020/schedule)
+
+
+## Table of Contents 
+
+* [General observations](#general-observations)
+* [Spring Boot Build Packs / Paketo.io](#spring-boot-build-packs--paketoio)
+* [Spring Boot & GraalVM](#spring-boot--graalvm)
+* [Spring Boot K8s Support](#spring-boot-k8s-support)
+
+---
+
 
 ### General observations
 
@@ -12,6 +25,7 @@ Find all video-recordings at https://springone.io/2020/schedule (you need to cre
 * Everything: Buildpacks!
 
 
+---
 
 
 
@@ -39,7 +53,7 @@ __--> More details: https://github.com/jonashackt/spring-boot-buildpack__
 
 
 
-
+---
 
 
 
@@ -51,7 +65,7 @@ alt="The Path Towards Spring Boot Native Applications (SpringOne2020)" width="24
 
 __*"The Path Towards Spring Boot Native Applications"*__ by https://twitter.com/sdeleuze & https://twitter.com/andy_clement
 
-currently supported:
+currently supported (0.8.x):
 
 * actuator
 * Cache
@@ -65,20 +79,25 @@ currently supported:
 * Wavefront
 * Spring Cloud Function
 
+> Roadmap: 0.9.x & Beta status Dec 2020
 
-__--> More details: https://github.com/jonashackt/spring-boot-graalvm__
-
-
+![spring-graal-overview](spring-graal-overview.png)
 
 because of native image, Bean Registration becomes functional Style 
 
 > Functional Bean Registration reduced startup times by ~ 50%, executable also ~ 50%
 
+![spring-graal-functional-beanconfiguration-style](spring-graal-functional-beanconfiguration-style.png)
+
 > generator from @Configuration bean registrations to functional Style: https://github.com/spring-projects-experimental/spring-init
 
 
+__--> More details: https://github.com/jonashackt/spring-boot-graalvm__
+
+https://blog.codecentric.de/en/2020/05/spring-boot-graalvm/
 
 
+---
 
 
 
@@ -107,6 +126,8 @@ Concept:
 * Liveness (Correct, Broken)
 * Readiness (Accepting Traffic, Refusing Traffic)
 
+![spring-k8s-liveliness-and-readiness-states](spring-k8s-liveliness-and-readiness-states.png)
+
 + new programming model inkl. Reactive Endpoints "recover" Exceptions, which will be delivered to the frontend, when specific state is reached
 
 - `AvailabilityChangeEvent`, if state of the App changed --> really cool!
@@ -132,10 +153,6 @@ spring.config.activate.on-cloud-platform=kubernetes
 optimize graceful shutdown more (for when routing state is changing, but routing traffic is still send to apps)
 
 layered jars index default, metadata for CI/CD pipelines
-
-
-
-
 
 
 
